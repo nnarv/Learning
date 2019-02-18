@@ -1,2 +1,2 @@
 # Learning
-Learning projects
+Self-Learning projects
