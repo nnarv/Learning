@@ -4,9 +4,6 @@
 
 package com.basic.Sort;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SelectionSort {
 
 	public static void display(int[] array){
@@ -28,14 +25,25 @@ public class SelectionSort {
 				}
 			}
 			
-			if(array[i] > array[minIndex]){
+			if(array[i] > array[minIndex]){  //-----> This comparision is not necessary 
 				int temp = array[i];
 				array[i] = array[minIndex];
 				array[minIndex] = temp;
 			}
 		}
 	}
+	
+	
+	/*  Time complexity : 
+		1st iteration : n
+		2nd iteration : n-1
+		3rd iteration : n-2
 		
+		nth iteration : 1
+		
+		= n+ (n-1) + (n-2) + ......... 1 = Sum of first n numbers = n(n+1)/2 
+		Hence time complexity of Selection sort = O(n^2)	
+	*/
 	
 	public static void main(String[] args) {
 		int [] array = {6, 1, 18, 47, 23, 2, 25, 9, 0, 52};
