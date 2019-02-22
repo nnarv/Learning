@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import com.basic.Algorithm.DepthFirstSearch.Node;
+
 
 
 /**
@@ -18,6 +20,7 @@ import java.util.Queue;
 public class BreadthFirstSearch {
 
 	Queue<Node> q = new LinkedList<Node>();
+	
 	static class Node{
 		
 		int value;
@@ -26,7 +29,7 @@ public class BreadthFirstSearch {
 		
 		Node(int value){
 			this.value = value;
-			this.neighbours = new ArrayList<Node>();
+			this.neighbours = new LinkedList<Node>();
 		}
 		
 		public void addNeighbour(Node neighbour){
@@ -64,6 +67,7 @@ public class BreadthFirstSearch {
 		Node node60 =new Node(60);
 		Node node50 =new Node(50);
 		Node node70 =new Node(70);
+		Node node80 =new Node(80);
  
 		node40.addNeighbour(node10);
 		node40.addNeighbour(node20);
@@ -75,6 +79,8 @@ public class BreadthFirstSearch {
 		node30.addNeighbour(node60);
 		node60.addNeighbour(node70);
 		node50.addNeighbour(node70);
+		node50.addNeighbour(node80);
+		
 		System.out.println("The BFS traversal of the graph is ");
 		BreadthFirstSearch bfsExample = new BreadthFirstSearch();
 		bfsExample.BFS(node40);
