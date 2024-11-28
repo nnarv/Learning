@@ -1,0 +1,85 @@
+package com.gfg.gfg160.array;
+
+/*
+Given an array of positive integers arr[], return the second largest element from the array. If the second largest element doesn't exist then return -1.
+
+Note: The second largest element should not be equal to the largest element.
+
+Examples:
+
+Input: arr[] = [12, 35, 1, 10, 34, 1]
+Output: 34
+Explanation: The largest element of the array is 35 and the second largest element is 34.
+Input: arr[] = [10, 5, 10]
+Output: 5
+Explanation: The largest element of the array is 10 and the second largest element is 5.
+Input: arr[] = [10, 10, 10]
+Output: -1
+Explanation: The largest element of the array is 10 and the second largest element does not exist.
+Constraints:
+2 ≤ arr.size() ≤ 105
+1 ≤ arr[i] ≤ 105
+
+*/
+
+public class SecondLargest {
+
+	public static int getSecondLargest(int[] arr) {
+	
+		int len = arr.length;
+		int max = arr[0];
+		int sec = -1;
+
+		if (len < 2)
+			return sec;
+
+		int i = 1, j = len - 1;
+		while (i < len && j >= 0 && j > i) {
+			if (arr[i] > max) {
+				sec = max;
+				max = arr[i];
+			}
+
+			if (arr[i] > sec && arr[i] < max) {
+				sec = arr[i];
+			}
+
+			if (arr[j] > max) {
+				sec = max;
+				max = arr[j];
+			}
+
+			if (arr[j] > sec && arr[j] < max) {
+				sec = arr[j];
+			}
+
+			i++;
+			j--;
+		}
+
+		// if i==j, the while loop is exited and that value is not evaluated.
+		// Hence check it separately
+		if (i == j) {
+
+			if (arr[i] > max) {
+				sec = max;
+				max = arr[i];
+			}
+
+			if (arr[i] > sec && arr[i] < max) {
+				sec = arr[i];
+			}
+		}
+
+		return sec;
+
+	}
+
+	public static void main(String[] args) {
+		
+		int[] arr = { 12, 35, 1, 33, 32, 1 };
+		System.err.println(getSecondLargest(arr));
+
+	}
+
+}
