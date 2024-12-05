@@ -56,9 +56,11 @@ public class RotateArray {
 	 * The idea is based on the observation that if we left rotate the array by d positions, 
 	 * the first d elements will be at the end and the last (n - d) elements will be at the front and .
 
-	Step 1 - reverse all the elements of the array.
-	Step 2 - Reverse the subarray containing the first d elements of the array.
-	Step 3 - Reverse the subarray containing the last (n - d) elements of the array.
+	Step 1 - Reverse the subarray containing the first d elements of the array.
+	Step 2 - Reverse the subarray containing the last (n - d) elements of the array.
+	Step 3 - reverse all the elements of the array.
+	
+	Using Reversal Algorithm - O(n) Time and O(1)
 	
 
 
@@ -74,11 +76,10 @@ public class RotateArray {
         	k = k%len;
         
         //Depending on the direction, choose the first k(left/anti-clockwise) or last k(right/clockwise)
-        reverse(nums, 0, len-1);
+        
         reverse(nums, 0, k-1);
         reverse(nums, k, len-1);
-
-        
+		reverse(nums, 0, len-1);     
     }
 
     static public void reverse(int[] nums, int start, int end){
